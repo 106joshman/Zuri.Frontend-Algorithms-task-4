@@ -14,11 +14,15 @@ const convertFahrToCelsius = (fahr) => {
     console.log(
       `${JSON.stringify(fahr)} is not a valid number but a/an object.`
     );
+  } else if (fahr === true || fahr === false) {
+    console.log(
+      `${JSON.stringify(fahr)} is not a valid number but a boolean.`
+    )
   } else if (
     (typeof fahr === "number" || typeof fahr === "string") &&
     /^[0-9]+$/.test(fahr)
   ) {
-    let myFahr = fahr * (9 / 5) + 32;
+    let myFahr = fahr - 32 * (5 / 9);
     console.log(myFahr.toFixed(4));
   } else {
     console.log(typeof fahr);
@@ -28,7 +32,16 @@ const convertFahrToCelsius = (fahr) => {
 
 convertFahrToCelsius([1,2,3,4]);
 convertFahrToCelsius("story");
-convertFahrToCelsius(12);
+convertFahrToCelsius("32");
+convertFahrToCelsius(2)
+convertFahrToCelsius("")
+convertFahrToCelsius(0)
+convertFahrToCelsius({re:2})
+convertFahrToCelsius(false)
+
+
+
+
 
 
 //Q2. write a function named "checkYuGiOh" that takes a nmuber, n, as an arguement, creates an array of numbers from 1 to n and replaces factors of 2,3 and 5 with "yu", "gi", and "oh", logs the resulting array to the console and then returns the resulting array.
@@ -58,4 +71,5 @@ const checkYuGiOh = (n) => {
 
 checkYuGiOh(2);
 checkYuGiOh(7);
-checkYuGiOh(22);
+checkYuGiOh(30);
+checkYuGiOh("story")
